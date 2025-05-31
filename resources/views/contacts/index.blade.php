@@ -50,7 +50,7 @@
                 @foreach($filterableCustomFields as $field)
                 <div class="col-md-4 mb-3">
                     <label for="customFilter{{ $field->id }}" class="form-label">{{ $field->label }}</label>
-                    <input type="text" class="form-control custom-filter"
+                    <input type="{{ $field->type === 'date' ? 'date' : ($field->type === 'number' ? 'number' : 'text') }}" class="form-control custom-filter"
                         id="customFilter{{ $field->id }}"
                         name="custom_filters[{{ $field->id }}]"
                         data-field-id="{{ $field->id }}">

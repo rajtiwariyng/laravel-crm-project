@@ -18,67 +18,67 @@ class ContactSeeder extends Seeder
         // Create sample contacts
         $contacts = [
             [
-                'name' => 'John Doe',
-                'email' => 'john.doe@example.com',
-                'phone' => '555-123-4567',
+                'name' => 'Raj Tiwari',
+                'email' => 'rajtiwariyng@gmail.com',
+                'phone' => '7827795345',
                 'gender' => 'male',
                 'status' => 'active',
                 'custom_fields' => [
-                    'birthday' => '1985-06-15',
+                    'birthday' => '1992-06-15',
                     'company_name' => 'Acme Corporation',
                     'job_title' => 'Marketing Director',
-                    'address' => '123 Main St, Anytown, USA',
-                    'website' => 'www.johndoe.com',
+                    'address' => '123 Main St, Delhi, IN',
+                    'website' => 'www.rajtiwariyng.com',
                     'notes' => 'Met at the tech conference in March.'
                 ]
             ],
             [
-                'name' => 'Jane Smith',
-                'email' => 'jane.smith@example.com',
-                'phone' => '555-987-6543',
+                'name' => 'Menka Tiwari',
+                'email' => 'menka@gmail.com',
+                'phone' => '9319927634',
                 'gender' => 'female',
                 'status' => 'active',
                 'custom_fields' => [
-                    'birthday' => '1990-02-28',
+                    'birthday' => '1996-02-28',
                     'company_name' => 'Tech Innovators',
                     'job_title' => 'Software Engineer',
-                    'address' => '456 Oak Ave, Somewhere, USA',
-                    'notes' => 'Referred by John Doe.'
+                    'address' => '456 Buxar, Bihar, IN',
+                    'notes' => 'Referred by Raj Tiwari.'
                 ]
             ],
             [
-                'name' => 'Robert Johnson',
-                'email' => 'robert.johnson@example.com',
-                'phone' => '555-456-7890',
+                'name' => 'Reyansh Tiwari',
+                'email' => 'reyansh@gmail.com',
+                'phone' => '9806050001',
                 'gender' => 'male',
                 'status' => 'active',
                 'custom_fields' => [
-                    'company_name' => 'Global Solutions',
+                    'company_name' => 'Reyansh Solutions',
                     'job_title' => 'CEO',
-                    'website' => 'www.globalsolutions.com'
+                    'website' => 'www.reyansh.com'
                 ]
             ],
             [
-                'name' => 'Emily Davis',
-                'email' => 'emily.davis@example.com',
-                'phone' => '555-789-0123',
+                'name' => 'Sapna Singh',
+                'email' => 'sapnasingh@gmail.com',
+                'phone' => '785202587',
                 'gender' => 'female',
                 'status' => 'active',
                 'custom_fields' => [
                     'birthday' => '1988-11-12',
                     'company_name' => 'Creative Designs',
                     'job_title' => 'Art Director',
-                    'address' => '789 Pine St, Elsewhere, USA'
+                    'address' => 'juhu, Mubmai, IN'
                 ]
             ],
             [
-                'name' => 'Michael Wilson',
-                'email' => 'michael.wilson@example.com',
-                'phone' => '555-321-6547',
+                'name' => 'Vivek Yadav',
+                'email' => 'vivekyadav@gmail.com.com',
+                'phone' => '7854525458',
                 'gender' => 'male',
                 'status' => 'active',
                 'custom_fields' => [
-                    'company_name' => 'Wilson Consulting',
+                    'company_name' => 'Yadav Consulting',
                     'job_title' => 'Consultant',
                     'notes' => 'Prefers to be contacted via email.'
                 ]
