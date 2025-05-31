@@ -308,6 +308,11 @@
     const masterContact2 = document.getElementById('masterContact2');
     const confirmMergeBtn = document.getElementById('confirmMergeBtn');
 
+    // Delete Modal Elements
+    const deleteConfirmModal = new bootstrap.Modal(document.getElementById("deleteConfirmModal"));
+    const contactToDeleteIdInput = document.getElementById("contactToDeleteId");
+    const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
+
     // Initialize the page
     document.addEventListener('DOMContentLoaded', function() {
         fetchContacts();
@@ -379,11 +384,15 @@
         });
 
         // Confirm merge button
-        confirmMergeBtn.addEventListener('click', function() {
+        confirmMergeBtn.addEventListener("click", function() {
             executeMerge();
         });
-    }
 
+        // Confirm delete button
+        confirmDeleteBtn.addEventListener("click", function() {
+            executeDelete();
+        });
+    }
     // Fetch contacts with filters and pagination
     async function fetchContacts() {
         try {
@@ -828,11 +837,18 @@
         }
     }
 
-    // Delete contact
-    async function deleteContact(id) {
-        if (!confirm('Are you sure you want to delete this contact?')) {
-            return;
-        }
+    // Delete contact - Show confirmation modal
+    function deleteContact(id) {
+        contactToDeleteIdInput.value = id;
+        deleteConfirmModal.show();
+    }
+
+    // Execute the actual deletion after modal confirmation
+    async function executeDelete() {
+        const id = contactToDeleteIdInput.value;
+        if (!id) return;
+
+        deleteConfirmModal.hide(); // Hide modal immediately
 
         try {
             showLoading();
@@ -851,7 +867,7 @@
                 showToast('Contact deleted successfully.');
 
                 // Remove from selected contacts if present
-                selectedContacts = selectedContacts.filter(contactId => contactId !== id);
+                selectedContacts = selectedContacts.filter(contactId => contactId !== parseInt(id));
                 updateMergeButtonState();
 
                 fetchContacts(); // Refresh the contacts list
@@ -863,6 +879,7 @@
             showToast('An error occurred while deleting the contact.', 'error');
         } finally {
             hideLoading();
+            contactToDeleteIdInput.value = ''; // Clear the ID
         }
     }
 
@@ -1002,3 +1019,24 @@
     }
 </script>
 @endsection
+
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmModalLabel">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this contact? This action cannot be undone.
+                <input type="hidden" id="contactToDeleteId">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete Contact</button>
+            </div>
+        </div>
+    </div>
+</div>
